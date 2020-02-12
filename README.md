@@ -1,5 +1,6 @@
 # setting package
 #### This package tends to add settings functionality to laravel applications
+##### Its built on top of laravel voyager package
 
 #### Requirements
 - PHP 7.1 or higher.
