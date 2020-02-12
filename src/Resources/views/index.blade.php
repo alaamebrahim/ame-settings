@@ -9,9 +9,9 @@
         </div>
     @endif
 
-    @can('admin.setting.update')
+    @role('admin')
         @include('ame-setting::update')
-    @endcan
+    @endrole
     @role('developer')
         @include('ame-setting::create')
     @endrole
