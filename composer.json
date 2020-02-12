@@ -1,0 +1,40 @@
+{
+  "name": "alaame/setting",
+  "description": "This package tends to add settings functionality to laravel applications",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "alaa mohammed",
+      "email": "alaamebrahim91@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "illuminate/support": "5.8.*|^6.0",
+    "intervention/image": "^2.5"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^3.8",
+    "mockery/mockery": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alaame\\Setting\\": "src/"
+    },
+    "files": [
+      "src/Helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Alaame\\Setting\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Alaame\\Setting\\SettingServiceProvider"
+      ]
+    }
+  }
+}
