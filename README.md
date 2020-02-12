@@ -14,7 +14,7 @@
 #### Installation
 - run `compose require alaame/setting`
 - run `php artisan migrate`
-- add `AMESetting::routes();` in web.php file in whatever place you want.
+- add `AMESetting::webRoutes();` in web.php file in whatever place you want.
 - access setting admin page using `/setting` and it's dependent on where you put `AMESetting::routes();` You can check the right path using `php artisan route:list`.
 
 #### usage 
