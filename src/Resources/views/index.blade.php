@@ -272,6 +272,7 @@
         $(".group_select_new").val('').trigger('change');
     </script>
 
+    @role('developer')
     <script>
         const options_editor = ace.edit('options_editor');
         options_editor.getSession().setMode("ace/mode/json");
@@ -282,6 +283,13 @@
         });
     </script>
     <script>
+        document.getElementById('toggle_options').addEventListener('click', function () {
+            document.getElementById('options_container').classList.toggle('new-settings-options')
+        });
+    </script>
+    @endrole
+    @role('admin')
+    <script>
         $( function() {
             $( "#tabs" ).tabs({
                 classes: {
@@ -290,11 +298,7 @@
             });
         } );
     </script>
-    <script>
-        document.getElementById('toggle_options').addEventListener('click', function () {
-            document.getElementById('options_container').classList.toggle('new-settings-options')
-        });
-    </script>
+    @endrole
 
     @stack('more-js')
 @stop
