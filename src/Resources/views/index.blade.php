@@ -2,8 +2,6 @@
 
 @section('pageTitle', __('ame-setting::page_title'))
 @section('content')
-    @include('flash::message')
-
     @role('admin')
         @include('ame-setting::update')
     @endrole
