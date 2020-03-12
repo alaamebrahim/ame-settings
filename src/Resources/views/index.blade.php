@@ -2,12 +2,7 @@
 
 @section('pageTitle', __('ame-setting::page_title'))
 @section('content')
-    @if (flash()->message)
-        <div id="alert" class="{{ flash()->class }} p-2 mb-2 rounded flex content-center items-center justify-between" role="alert">
-            {{ flash()->message }}
-            <i class="fas fa-window-close float-left cursor-pointer" onclick="document.getElementById('alert').remove()"></i>
-        </div>
-    @endif
+    @include('flash::message')
 
     @role('admin')
         @include('ame-setting::update')

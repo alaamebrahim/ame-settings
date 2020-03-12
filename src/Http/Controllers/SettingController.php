@@ -44,9 +44,9 @@ class SettingController extends Controller
         request()->flashOnly('setting_tab');
 
         if ($setting == null) {
-            flash()->error(__('ame-setting::settings.key_already_exists', ['key' => '']));
+            flash(__('ame-setting::settings.key_already_exists', ['key' => '']))->error();
         } else {
-            flash()->success(__('ame-setting::settings.successfully_created'));
+            flash(__('ame-setting::settings.successfully_created', ['key' => '']))->success();
         }
 
         return redirect()->back();
@@ -58,7 +58,7 @@ class SettingController extends Controller
 
         request()->flashOnly('setting_tab');
 
-        flash()->success(__('ame-setting::settings.successfully_saved'));
+        flash(__('ame-setting::settings.successfully_saved'))->success();
 
         return redirect()->back();
     }
@@ -77,7 +77,7 @@ class SettingController extends Controller
 
         request()->session()->flash('setting_tab', $setting->group);
 
-        flash()->success(__('ame-setting::settings.successfully_deleted'));
+        flash(__('ame-setting::settings.successfully_deleted'))->success();
 
         return back();
     }
@@ -100,9 +100,10 @@ class SettingController extends Controller
             $previousSetting->setAttribute('order', $swapOrder);
             $previousSetting->save();
 
-            flash()->success(__('ame-setting::settings.moved_order_up', ['name' => $setting->getAttribute('display_name')]));
+            flash(__('ame-setting::settings.moved_order_up', ['name' => $setting->getAttribute('display_name')]))->success();
+
         } else {
-            flash()->error(__('ame-setting::settings.already_at_top'));
+            flash(__('ame-setting::settings.already_at_top'))->error();
         }
 
         request()->session()->flash('setting_tab', $setting->getAttribute('group'));
@@ -132,7 +133,8 @@ class SettingController extends Controller
 
         request()->session()->flash('setting_tab', $setting->getAttribute('group'));
 
-        flash()->success(__('ame-setting::settings.successfully_removed', ['name' => $setting->getAttribute('display_name')]));
+        flash(__('ame-setting::settings.successfully_removed', ['name' => $setting->getAttribute('display_name')]))->success();
+
         return back();
     }
 
@@ -156,10 +158,10 @@ class SettingController extends Controller
             $previousSetting->setAttribute('order', $swapOrder);
             $previousSetting->save();
 
-            flash()->success(__('ame-setting::settings.moved_order_down', ['name' => $setting->getAttribute('display_name')]));
-        } else {
-            flash()->error(__('ame-setting::settings.already_at_bottom'));
+            flash(__('ame-setting::settings.moved_order_down', ['name' => $setting->getAttribute('display_name')]))->success();
 
+        } else {
+            flash(__('ame-setting::settings.already_at_bottom'))->error();
         }
 
         request()->session()->flash('setting_tab', $setting->getAttribute('group'));
