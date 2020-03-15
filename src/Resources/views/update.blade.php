@@ -9,7 +9,7 @@
             <div class="w-full flex-col" id="tabs">
                 <ul class="flex mt-5">
                     @foreach($settings as $group => $setting)
-                        @hasrole('developer')
+                        @hasrole('admin')
                         <li class="mr-1">
                             <a class="rounded bg-orange-500 text-white hover:bg-orange-800 transition duration-500 px-4 py-2"
                                href="#tabs-{{ Str::slug($group) }}">
