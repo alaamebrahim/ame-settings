@@ -56,4 +56,10 @@ class SettingServiceProvider extends ServiceProvider
             return "<?php echo setting($expression); ?>";
         });
     }
+
+    protected function publishViews(){
+        $this->publishes([
+            __DIR__.'/Resources/views' => resource_path('views/vendor/ame_setting'),
+        ]);
+    }
 }
