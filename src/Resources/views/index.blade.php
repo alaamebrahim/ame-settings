@@ -2,6 +2,9 @@
 
 @section('pageTitle', __('ame-setting::page_title'))
 @section('content')
+    <div class="py-8 text-2xl text-right">
+        <i class="fas fa-cogs text-orange-600 pr-3"></i> الإعدادات
+    </div>
     @role('admin')
         @include('ame-setting::update')
     @endrole
