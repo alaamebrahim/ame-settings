@@ -5,12 +5,8 @@
     <div class="py-8 text-2xl text-right">
         <i class="fas fa-cogs text-orange-600 pr-3"></i> الإعدادات
     </div>
-    @role('admin')
-        @include('ame-setting::update')
-    @endrole
-    @role('developer')
-        @include('ame-setting::create')
-    @endrole
+    @include('ame-setting::update')
+    @include('ame-setting::create')
     <form action="#" id="delete_form" method="POST" class="hidden">
         {{ method_field("DELETE") }}
         {{ csrf_field() }}
@@ -243,7 +239,7 @@
                 $('#delete_form')[0].action = '{{ route('admin.setting.delete', [ 'id' => '__id' ]) }}'.replace('__id', $(this).data('id'));
 
                 const ok = window.confirm('هل أنت متأكد من الحذف؟');
-                if(ok === true) {
+                if (ok === true) {
                     $('#delete_form')[0].submit();
                 }
             });
@@ -268,7 +264,6 @@
         $(".group_select_new").val('').trigger('change');
     </script>
 
-    @role('developer')
     <script>
         const options_editor = ace.edit('options_editor');
         options_editor.getSession().setMode("ace/mode/json");
@@ -283,18 +278,15 @@
             document.getElementById('options_container').classList.toggle('new-settings-options')
         });
     </script>
-    @endrole
-    @role('admin')
     <script>
-        $( function() {
-            $( "#tabs" ).tabs({
+        $(function () {
+            $("#tabs").tabs({
                 classes: {
                     "ui-tabs-active": "bg-orange-900"
                 }
             });
-        } );
+        });
     </script>
-    @endrole
 
     @stack('more-js')
 @stop

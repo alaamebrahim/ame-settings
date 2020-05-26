@@ -1,4 +1,3 @@
-@hasanyrole('admin|developer')
 <div class="w-full bg-white p-1 rounded shadow mb-3">
     <div class="w-full flex flex-col">
         <form action="{{ route('admin.setting.update') }}" method="POST"
@@ -9,14 +8,11 @@
             <div class="w-full flex-col" id="tabs">
                 <ul class="flex mt-5">
                     @foreach($settings as $group => $setting)
-                        @hasrole('admin')
                         <li class="mr-1">
                             <a class="rounded bg-orange-500 text-white hover:bg-orange-800 transition duration-500 px-4 py-2"
                                href="#tabs-{{ Str::slug($group) }}">
                                 {{ $group }}
                             </a>
-                        </li>
-                        @endhasrole
                     @endforeach
                 </ul>
                 @foreach($settings as $group => $group_settings)
@@ -36,17 +32,15 @@
                                         <a href="{{ route('admin.setting.move_down', $setting->id) }}">
                                             <i class="fa fa-arrow-down"></i>
                                         </a>
-                                        @role('developer')
                                         <span class="cursor-pointer px-2 text-danger delete-setting"
                                               data-id="{{ $setting->id }}">
                                                         <i class="text-xl p-1 fas fa-trash text-red-500"></i>
-                                                    </span>
-                                        @endrole
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="flex justify-center  w-full">
-                                    <div class="@role('developer') w-10/12 @else w-full @endrole flex">
+                                    <div class="w-10/12 flex">
                                         @if ($setting->type == "text")
                                             <input type="text"
                                                    class="flex-grow bg-white p-1 border border-gray-200 w-full m-1"
@@ -144,7 +138,6 @@
                                             @endif
                                         @endif
                                     </div>
-                                    @role('developer')
                                     <div class="w-2/12 justify-center items-center flex">
                                         <select class="bg-white p-1 border border-gray-200 w-full m-1"
                                                 name="{{ $setting->key }}_group">
@@ -154,7 +147,6 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    @endrole
                                 </div>
                             </div>
 
@@ -175,4 +167,3 @@
         </form>
     </div>
 </div>
-@endhasanyrole
