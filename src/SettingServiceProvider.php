@@ -13,6 +13,7 @@ class SettingServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->registerConfig();
+            $this->publishViews();
         }
     }
 
